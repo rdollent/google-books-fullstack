@@ -1,16 +1,17 @@
 const React = require('react');
 
-
-class First extends React.Component {
+class Results extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <p>Harroooo!~~~</p>
+            <div>
+                
+            </div>
         )
     }
 }
 
-module.exports = First;
+module.exports = Results;

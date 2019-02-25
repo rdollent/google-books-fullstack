@@ -13,6 +13,9 @@ Steps for setup
 12. create webpack.config.js file using touch webpack.config.js
 13. create entry point, output, resolve, modules and aliases in webpack.config.js
 14. git init (create local git rep)
-15. create github repository. use SSH to connect local git to github.
+15. create github repository. use SSH to connect local git to github. 
+16. Check if SSH keys are already in computer using 'ls -al ~/.ssh' in terminal.
+17. install redux (npm install redux) for managing state
+18. create store, reducers, actions folders and jsx files
 
 
