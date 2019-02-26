@@ -12,3 +12,15 @@
 //         return state;
 //     }
 // };
+
+export const inputReducer = (state = {input: ''}, action) => {
+    switch(action.type) {
+        case 'ADD':
+            return {
+                ...state,
+                input: action.input
+            }
+        default:
+            return state;
+    }
+}

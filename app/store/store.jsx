@@ -3,10 +3,12 @@ const thunk = require('redux-thunk').default;
 // redux-thunk teaches redux to read actions that aren't object literals (like functions)
 
 
-const {/* insert reducers here */} = require('./../reducers/index');
+// const {/* insert reducers here */} = require('./../reducers/index');
 
+
+const {inputReducer} = require('reducers');
 // export a function that returns store variable
-export const configure = () => {
+export const createStore = () => {
         
     // argument is a set of key-value pairs
     // represents item and state you want this reducer to manage
@@ -17,6 +19,7 @@ export const configure = () => {
         // hobbies: hobbiesReducer,
         // movies: moviesReducer,
         // map: mapReducer
+        input: inputReducer
     });
     
     // 2nd argument lets you configure which store you wanna use

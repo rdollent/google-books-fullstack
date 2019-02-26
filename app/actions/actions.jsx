@@ -44,3 +44,12 @@
 //     } 
 // };
 
+
+const ADD = 'ADD';
+
+export const addInput = (input) => {
+  return {
+    type: ADD,
+    input: input
+  }
+};
