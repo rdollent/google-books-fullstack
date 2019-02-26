@@ -1,7 +1,7 @@
 const React = require('react');
 
 const Search = require('Search');
-
+const Results = require('Results');
 
 class Main extends React.Component {
     constructor(props) {
