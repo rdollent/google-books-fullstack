@@ -19,7 +19,7 @@ export const createStore = () => {
         // hobbies: hobbiesReducer,
         // movies: moviesReducer,
         // map: mapReducer
-        input: inputReducer
+        inputReducer
     });
     
     // 2nd argument lets you configure which store you wanna use

@@ -7,7 +7,6 @@ const actions = require('actions');
 class Search extends React.Component {
     constructor(props) {
         super(props);
-        this.textInput = React.createRef();
         this.submitInput = this.submitInput.bind(this);
         this.handleInput = this.handleInput.bind(this);
     }
@@ -38,7 +37,7 @@ class Search extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return state;
+    return state.inputReducer;
 };
   
 const mapDispatchToProps = (dispatch) => {
