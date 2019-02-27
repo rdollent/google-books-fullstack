@@ -7,25 +7,21 @@ const actions = require('actions');
 class Search extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            input: ''
-        }
         this.textInput = React.createRef();
         this.submitInput = this.submitInput.bind(this);
         this.handleInput = this.handleInput.bind(this);
     }
 
     handleInput(event) {
-        this.setState({
-            input: event.target.value
-        });
-        console.log(this.state);
+        this.props.submitNewInput(event.target.value);
     }
 
     submitInput(e) {
         e.preventDefault();
-        console.log(this.state);
-        this.props.submitNewInput(this.state.input);
+        let newState = this.props;
+        console.log(newState);
+
+        // fetch('https://www.googleapis.com/books/v1/volumes?q=' + store.getState())
     }
 
     render() {
@@ -42,7 +38,7 @@ class Search extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {input: state}
+    return state;
 };
   
 const mapDispatchToProps = (dispatch) => {
