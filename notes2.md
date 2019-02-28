@@ -14,3 +14,11 @@ state
 
 search component
     API call to Google Books
+
+
+need from API:
+-title
+-author
+-publishing company
+-picture of book
+-more info

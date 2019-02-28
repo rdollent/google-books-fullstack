@@ -17,10 +17,22 @@ class Search extends React.Component {
 
     submitInput(e) {
         e.preventDefault();
-        let newState = this.props;
-        console.log(newState);
+        let searchWord = this.props.input;
 
-        // fetch('https://www.googleapis.com/books/v1/volumes?q=' + store.getState())
+
+        // API key
+        // AIzaSyCCNymCGy8woooS7e6VBt4KLXt1UzAC6Pw 
+        fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchWord + '&key=AIzaSyCCNymCGy8woooS7e6VBt4KLXt1UzAC6Pw')
+            .then((res) => {
+                return res.json();
+            })
+            .then((json) => {
+                const booksArr = json.items.map((item) => item.volumeInfo);
+                // need title, authors (array), imageLinks.smallThumbnail, publisher, previewLink
+
+
+            })
+            .catch((err) => {console.log(error)});
     }
 
     render() {
