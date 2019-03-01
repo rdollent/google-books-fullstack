@@ -23,3 +23,14 @@ export const inputReducer = (state = {input: ''}, action) => {
             return state;
     }
 }
+
+export const bookReducer = (state = {books: []}, action) => {
+    switch(action.type) {
+        case 'STORE':
+            return {
+                books: action.books
+            }
+        default:
+            return state;
+    }
+}

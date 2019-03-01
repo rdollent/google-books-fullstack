@@ -46,6 +46,7 @@
 
 
 const ADD = 'ADD';
+const STORE = 'STORE';
 
 export const addInput = (input) => {
   return {
@@ -53,3 +54,10 @@ export const addInput = (input) => {
     input: input
   }
 };
+
+export const storeBooks = (arr) => {
+  return {
+    type: STORE,
+    books: arr
+  }
+}

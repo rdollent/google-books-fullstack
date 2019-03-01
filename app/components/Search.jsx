@@ -29,10 +29,10 @@ class Search extends React.Component {
             .then((json) => {
                 const booksArr = json.items.map((item) => item.volumeInfo);
                 // need title, authors (array), imageLinks.smallThumbnail, publisher, previewLink
-
+                this.props.storeNewBooks(booksArr);
 
             })
-            .catch((err) => {console.log(error)});
+            .catch((err) => {console.log(err)});
     }
 
     render() {
@@ -56,9 +56,13 @@ const mapDispatchToProps = (dispatch) => {
     return {
         submitNewInput: (input) => {
             dispatch(actions.addInput(input))
+        },
+        storeNewBooks: (arr) => {
+            dispatch(actions.storeBooks(arr))
         }
     }
-};
+}
+
   
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Search);
