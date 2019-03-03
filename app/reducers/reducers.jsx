@@ -34,3 +34,14 @@ export const bookReducer = (state = {books: []}, action) => {
             return state;
     }
 }
+
+export const errorReducer = (state = '', action) => {
+    switch(action.type) {
+        case 'ERROR':
+            return "Please try again"
+        case 'REMOVE_ERROR':
+            return ''
+        default:
+            return state;
+    }
+}

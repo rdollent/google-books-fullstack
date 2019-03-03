@@ -6,7 +6,7 @@ const thunk = require('redux-thunk').default;
 // const {/* insert reducers here */} = require('./../reducers/index');
 
 
-const {inputReducer, bookReducer} = require('reducers');
+const {inputReducer, bookReducer, errorReducer} = require('reducers');
 // export a function that returns store variable
 export const createStore = () => {
         
@@ -20,7 +20,8 @@ export const createStore = () => {
         // movies: moviesReducer,
         // map: mapReducer
         inputReducer,
-        bookReducer
+        bookReducer,
+        errorReducer
     });
     
     // 2nd argument lets you configure which store you wanna use

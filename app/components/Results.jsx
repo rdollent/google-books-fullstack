@@ -9,19 +9,32 @@ class Results extends React.Component {
 
     render() {
         const renderBooks = () => {
-            const books = this.props.books;
-            if(books) {
+            const books = this.props.bookReducer.books;
+            const error = this.props.errorReducer;
+
+            if(books && !error) {
                 return books.map((book, index) => {
+                    // const {title, authors, publisher, imageLinks: {smallThumbnail}, infoLink} = book;
+                    let title = book.title || '';
+                    let authors = book.authors || [''];
+                    let publisher = book.publisher || '';
+                    let smallThumbnail = book.imageLinks ?  book.imageLinks.smallThumbnail : 'https://books.google.ca/googlebooks/images/no_cover_thumb.gif';
+                    let infoLink = book.infoLink || '';
                     return (
-                        <Book key={index} 
-                            title={book.title} 
-                            authors={book.authors} 
-                            publisher={book.publisher} 
-                            imgUrl={book.imageLinks.smallThumbnail} 
-                            link={book.infoLink} 
+                        <Book key={index}
+                            ind={index}
+                            title={title} 
+                            authors={authors} 
+                            publisher={publisher} 
+                            imgUrl={smallThumbnail}
+                            link={infoLink} 
                         />
                     )
                 });
+            } else if(error) {
+                return (
+                    <Book error={error} />
+                )
             }
         }
 
@@ -34,7 +47,7 @@ class Results extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return state.bookReducer;
+    return {bookReducer, errorReducer} = state;
 };
 
 const Container = connect(mapStateToProps)(Results);

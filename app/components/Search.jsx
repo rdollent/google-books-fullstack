@@ -15,6 +15,10 @@ class Search extends React.Component {
         this.props.submitNewInput(event.target.value);
     }
 
+    handleError(error) {
+        this.props.handleNewError(error);
+    }
+
     submitInput(e) {
         e.preventDefault();
         let searchWord = this.props.input;
@@ -26,16 +30,25 @@ class Search extends React.Component {
             + '&fields=items(volumeInfo(title,authors,publisher,imageLinks/smallThumbnail,infoLink))'
             )
             .then((res) => {
+                if(!res.ok && res.status !== 200) {
+                    throw Error(res.statusText);
+                }
+
                 return res.json();
+                
             })
             .then((json) => {
                 const booksArr = json.items.map((item) => item.volumeInfo);
                 // need title, authors (array), imageLinks.smallThumbnail, publisher, infoLink
                 this.props.storeNewBooks(booksArr);
-
+                this.props.handleRemoveError();
 
             })
-            .catch((err) => {console.log(err)});
+            .catch((err) => {
+                    console.log(err);
+                    this.handleError();
+                }
+            );
     }
 
     render() {
@@ -62,6 +75,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         storeNewBooks: (arr) => {
             dispatch(actions.storeBooks(arr))
+        },
+        handleNewError: (error) => {
+            dispatch(actions.handleError())
+        },
+        handleRemoveError: () => {
+            dispatch(actions.removeError())
         }
     }
 }

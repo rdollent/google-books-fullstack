@@ -47,6 +47,8 @@
 
 const ADD = 'ADD';
 const STORE = 'STORE';
+const ERROR = 'ERROR';
+const REMOVE_ERROR = 'REMOVE_ERROR';
 
 export const addInput = (input) => {
   return {
@@ -59,5 +61,17 @@ export const storeBooks = (arr) => {
   return {
     type: STORE,
     books: arr
+  }
+}
+
+export const handleError = () => {
+  return {
+    type: ERROR
+  }
+}
+
+export const removeError = () => {
+  return {
+    type: REMOVE_ERROR
   }
 }
