@@ -22,14 +22,17 @@ class Search extends React.Component {
 
         // API key
         // AIzaSyCCNymCGy8woooS7e6VBt4KLXt1UzAC6Pw 
-        fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchWord + '&key=AIzaSyCCNymCGy8woooS7e6VBt4KLXt1UzAC6Pw')
+        fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchWord + '&key=AIzaSyCCNymCGy8woooS7e6VBt4KLXt1UzAC6Pw'
+            + '&fields=items(volumeInfo(title,authors,publisher,imageLinks/smallThumbnail,infoLink))'
+            )
             .then((res) => {
                 return res.json();
             })
             .then((json) => {
                 const booksArr = json.items.map((item) => item.volumeInfo);
-                // need title, authors (array), imageLinks.smallThumbnail, publisher, previewLink
+                // need title, authors (array), imageLinks.smallThumbnail, publisher, infoLink
                 this.props.storeNewBooks(booksArr);
+
 
             })
             .catch((err) => {console.log(err)});

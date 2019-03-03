@@ -1,5 +1,6 @@
 const React = require('react');
 const {connect} = require('react-redux');
+const Book = require('Book');
 
 class Results extends React.Component {
     constructor(props) {
@@ -7,21 +8,26 @@ class Results extends React.Component {
     }
 
     render() {
-
-        let bookList = [];
-
-        if(this.props.state) {
-
-       
-            bookList = this.props.state.filter((book) => {
-                return {title, author, publisher, imageLinks: {smallThumbnail}, previewLink} = book
-            });
+        const renderBooks = () => {
+            const books = this.props.books;
+            if(books) {
+                return books.map((book, index) => {
+                    return (
+                        <Book key={index} 
+                            title={book.title} 
+                            authors={book.authors} 
+                            publisher={book.publisher} 
+                            imgUrl={book.imageLinks.smallThumbnail} 
+                            link={book.infoLink} 
+                        />
+                    )
+                });
+            }
         }
 
-        
         return (
             <div>
-                {bookList}
+                {renderBooks()}
             </div>
         )
     }
