@@ -16,12 +16,13 @@ module.exports = {
             'components',
             'reducers',
             'store',
-            'actions'
+            'actions',
+            'styles'
         ],
         alias: {
-
+          applicationStyles: "app/styles/app.scss"
         },
-        extensions: ['.js', '.jsx']
+        extensions: ['.scss', '.js', '.jsx']
     },
     module: {
         rules: [
@@ -35,6 +36,12 @@ module.exports = {
                 
               }
             }
+          },
+          {
+            test: /\.scss$/,
+            exclude: /(node_modules|bower_components)/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+            
           }
         ]
     }
