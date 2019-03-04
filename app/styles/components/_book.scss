@@ -1,0 +1,27 @@
+#book-0, #book-2, #book-4, #book-6, #book-8 {
+    grid-column: $c1;
+}
+
+#book-1, #book-3, #book-5, #book-7, #book-9 {
+    grid-column: $c2;
+}
+
+#book-0, #book-1 {
+    grid-row: $r1;
+}
+
+#book-2, #book-3 {
+    grid-row: $r2;
+}
+
+#book-4, #book-5 {
+    grid-row: $r3;
+}
+
+#book-6, #book-7 {
+    grid-row: $r4;
+}
+
+#book-8, #book-9 {
+    grid-row: $r5;
+}

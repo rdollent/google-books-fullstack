@@ -15,7 +15,7 @@ class Book extends React.Component {
 
             return (
                 <div id={bookId} className='books'>
-                    <p>{title}</p>
+                    <p className="titles">{title}</p>
                     <img src={imgUrl} alt="No preview available"></img>
                     <p>{authorList}</p>
                     <p>{publisher}</p>

@@ -1,5 +1,13 @@
 #results {
     grid-column: col2 / col3;
     grid-row: row3/ row4;
-    justify-self: stretch;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: [col1-res] 300px [col2-res] 100px [col3-res] 300px [col4-res];
+    grid-template-rows: [row1-res] 400px [row2-res] 50px 
+                        [row3-res] 400px [row4-res] 50px
+                        [row5-res] 400px [row6-res] 50px
+                        [row7-res] 400px [row8-res] 50px
+                        [row9-res] 400px [row10-res] 50px;
+    
 }
