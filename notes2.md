@@ -22,3 +22,5 @@ need from API:
 -publishing company
 -picture of book
 -more info
+
+heroku git:remote -a jun-chingu-book-finder
