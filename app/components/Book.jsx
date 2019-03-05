@@ -15,11 +15,11 @@ class Book extends React.Component {
 
             return (
                 <div id={bookId} className='books'>
-                    <p className="titles">{title}</p>
+                    <p className="titles"><strong>{title}</strong></p>
                     <img src={imgUrl} alt="No preview available"></img>
-                    <p>{authorList}</p>
+                    <p><em>{authorList}</em></p>
                     <p>{publisher}</p>
-                    <a href={link} target="_new">More Info</a>
+                    <div className="info"><a href={link} target="_new">More Info</a></div>
                 </div>
             )
 

@@ -25,3 +25,19 @@
 // #book-8, #book-9 {
 //     grid-row: $r5;
 // }
+
+.books {
+    border: 1px solid #B0C4DE;
+    padding: 10px;
+}
+
+.info {
+    border: 1px solid	#778899;
+    padding: 5px;
+    background-color: #778899;
+    text-align: center;
+}
+.info a {
+    text-decoration: none;
+    color: #fefefe;
+}

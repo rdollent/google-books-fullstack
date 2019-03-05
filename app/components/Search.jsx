@@ -56,7 +56,7 @@ class Search extends React.Component {
             <div id='search'>
                 <form onSubmit={this.submitInput}>
                     <input type="text" name="search" id="searchBar" onChange={this.handleInput}/>
-                    <button>Submit</button>
+                    <button id='submitBtn'>Submit</button>
                 </form>
                 
             </div>
