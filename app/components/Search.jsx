@@ -41,6 +41,17 @@ class Search extends React.Component {
                 const booksArr = json.items.map((item) => item.volumeInfo);
                 // need title, authors (array), imageLinks.smallThumbnail, publisher, infoLink
                 this.props.storeNewBooks(booksArr);
+                
+                // store in localStorage
+                // localStorage only stores strings
+                // refer to 
+                //https://stackoverflow.com/questions/5410745/how-can-i-get-a-list-of-the-items-stored-in-html-5-local-storage-from-javascript
+                // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+                const initList = JSON.parse(window.localStorage.getItem('list'));
+                
+                
+                window.localStorage.setItem('')
+                
                 this.props.handleRemoveError();
 
             })

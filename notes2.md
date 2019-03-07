@@ -24,3 +24,5 @@ need from API:
 -more info
 
 heroku git:remote -a jun-chingu-book-finder
+
+create component which houses last 10 queries
