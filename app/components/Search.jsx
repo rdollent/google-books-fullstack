@@ -19,9 +19,9 @@ class Search extends React.Component {
         this.props.handleNewError(error);
     }
 
-    submitInput(e) {
+    submitInput(e, word) {
         e.preventDefault();
-        let searchWord = this.props.input;
+        let searchWord = this.props.input || word;
 
 
         // API key
@@ -41,18 +41,8 @@ class Search extends React.Component {
                 const booksArr = json.items.map((item) => item.volumeInfo);
                 // need title, authors (array), imageLinks.smallThumbnail, publisher, infoLink
                 this.props.storeNewBooks(booksArr);
-                
-                // store in localStorage
-                // localStorage only stores strings
-                // refer to 
-                //https://stackoverflow.com/questions/5410745/how-can-i-get-a-list-of-the-items-stored-in-html-5-local-storage-from-javascript
-                // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-                const initList = JSON.parse(window.localStorage.getItem('list'));
-                
-                
-                window.localStorage.setItem('')
-                
                 this.props.handleRemoveError();
+                this.setStorage(searchWord);
 
             })
             .catch((err) => {
@@ -60,6 +50,24 @@ class Search extends React.Component {
                     this.handleError();
                 }
             );
+    }
+
+    setStorage(searchWord) {
+        // store in localStorage
+        // localStorage only stores strings
+        // refer to 
+        // https://stackoverflow.com/questions/5410745/how-can-i-get-a-list-of-the-items-stored-in-html-5-local-storage-from-javascript
+        // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+        const initList = JSON.parse(window.localStorage.getItem('list')) || [];
+        
+
+        if(initList.length === 10) {
+            initList.shift();
+        }
+
+        initList.push(searchWord);
+        
+        window.localStorage.setItem('list', JSON.stringify(initList));
     }
 
     render() {

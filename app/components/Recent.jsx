@@ -10,7 +10,7 @@ class Recent extends React.Component {
     }
     
     render() {
-        const LIST = window.localStorage.getItem('list');
+        // const LIST = window.localStorage.getItem('list');
         
         return (
             <div>
@@ -20,3 +20,5 @@ class Recent extends React.Component {
             )
     }   
 }
+
+module.exports = Recent;
