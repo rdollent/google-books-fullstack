@@ -59,13 +59,20 @@ class Search extends React.Component {
         // https://stackoverflow.com/questions/5410745/how-can-i-get-a-list-of-the-items-stored-in-html-5-local-storage-from-javascript
         // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
         const initList = JSON.parse(window.localStorage.getItem('list')) || [];
-        
 
         if(initList.length === 10) {
             initList.shift();
         }
 
-        initList.push(searchWord);
+
+        // Array.prototype.includes is case-sensitive
+        // if result is already there, just switch its current index to the last one available
+        if(initList.includes(searchWord.toLowerCase())) {
+            // initList.splice
+        }
+
+
+        initList.push(searchWord.toLowerCase());
         
         window.localStorage.setItem('list', JSON.stringify(initList));
     }
