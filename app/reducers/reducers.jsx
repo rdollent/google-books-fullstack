@@ -18,30 +18,41 @@ export const inputReducer = (state = {input: ''}, action) => {
         case 'ADD':
             return {
                 input: action.input
-            }
+            };
         default:
             return state;
     }
-}
+};
 
 export const bookReducer = (state = {books: []}, action) => {
     switch(action.type) {
         case 'STORE':
             return {
                 books: action.books
-            }
+            };
         default:
             return state;
     }
-}
+};
 
 export const errorReducer = (state = '', action) => {
     switch(action.type) {
         case 'ERROR':
-            return "Please try again"
+            return "Please try again";
         case 'REMOVE_ERROR':
-            return ''
+            return '';
         default:
             return state;
     }
-}
+};
+
+export const storageReducer = (state = '', action) => {
+    switch(action.type) {
+        case 'STORAGE_CHANGE':
+            return 'Storage changed!';
+        case 'REMOVE_STORAGE':
+            return '';
+        default:
+            return state;
+    }
+};

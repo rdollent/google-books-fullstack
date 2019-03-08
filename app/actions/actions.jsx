@@ -49,29 +49,43 @@ const ADD = 'ADD';
 const STORE = 'STORE';
 const ERROR = 'ERROR';
 const REMOVE_ERROR = 'REMOVE_ERROR';
+const STORAGE_CHANGE = 'STORAGE_CHANGE';
+const REMOVE_STORAGE = 'REMOVE_STORAGE';
 
 export const addInput = (input) => {
   return {
     type: ADD,
     input: input
-  }
+  };
 };
 
 export const storeBooks = (arr) => {
   return {
     type: STORE,
     books: arr
-  }
-}
+  };
+};
 
 export const handleError = () => {
   return {
     type: ERROR
-  }
-}
+  };
+};
 
 export const removeError = () => {
   return {
     type: REMOVE_ERROR
-  }
-}
+  };
+};
+
+export const storeLocal = () => {
+  return {
+    type: STORAGE_CHANGE
+  };
+};
+
+export const clearLocal = () => {
+  return {
+    type: REMOVE_STORAGE
+  };
+};

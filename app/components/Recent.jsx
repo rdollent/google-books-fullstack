@@ -1,8 +1,9 @@
 const React = require('react');
 const {connect} = require('react-redux');
 
-//stateless
-//get and set localStorage?
+
+const actions = require('actions');
+
 
 class Recent extends React.Component {
     constructor(props) {
@@ -10,15 +11,41 @@ class Recent extends React.Component {
     }
     
     render() {
-        // const LIST = window.localStorage.getItem('list');
+        // clear storageReducer every time so the component refreshes when query is made (and new state in storageReducer is changed)
+        this.props.clearLocal();
+        const getList = () => {
+            if(this.props.storageReducer !== '' || window.localStorage.getItem('list').length > 0) {
+                const list = (JSON.parse(window.localStorage.getItem('list')) || []).join(', ');
+                return list;
+            }    
+            
+        };
         
         return (
-            <div>
-            
+            <div id='recent'>
+                <p>Recent searches:</p>
+                {getList()}
             </div>
             
-            )
+            );
     }   
 }
 
-module.exports = Recent;
+
+const mapStateToProps = (state) => {
+    return {storageReducer} = state;
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        clearLocal: () => {
+            dispatch(actions.clearLocal());
+        }
+    };
+};
+
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Recent);
+
+
+module.exports = Container;

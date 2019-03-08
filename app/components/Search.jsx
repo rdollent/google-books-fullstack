@@ -58,7 +58,7 @@ class Search extends React.Component {
         // refer to 
         // https://stackoverflow.com/questions/5410745/how-can-i-get-a-list-of-the-items-stored-in-html-5-local-storage-from-javascript
         // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-        const initList = JSON.parse(window.localStorage.getItem('list')) || [];
+        const initList = window.localStorage.getItem('list') ? JSON.parse(window.localStorage.getItem('list')) : [];
         
         // Array.prototype.includes is case-sensitive
         // if result is already there, just switch its current index to the last one available
@@ -66,18 +66,21 @@ class Search extends React.Component {
             // initList.splice
             initList.splice(initList.indexOf(searchWord.toLowerCase()),1);
         }
-
+        
+        // store only 10 query results in localStorage.
+        // if 10, remove the oldest (or first) entry in array.
         if(initList.length === 10) {
             initList.shift();
         }
 
-
-        
-
-
         initList.push(searchWord.toLowerCase());
         
         window.localStorage.setItem('list', JSON.stringify(initList));
+        
+        // need state so Recent component gets updated
+        // basically just tells Redux store that we stored a new entry in localStorage.
+        // need to clear this state again so Recent component will refresh.
+        this.props.storeNewStorage();
     }
 
     render() {
@@ -110,6 +113,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleRemoveError: () => {
             dispatch(actions.removeError())
+        },
+        storeNewStorage: () => {
+            dispatch(actions.storeLocal())
         }
     }
 }
