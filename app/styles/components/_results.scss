@@ -1,6 +1,6 @@
 #results {
     grid-column: col2 / col3;
-    grid-row: row3/ row4;
+    grid-row: row-results-start/ row-results-end;
     justify-self: center;
     display: grid;
     // grid-template-columns: [col1-res] 300px [col2-res] 100px [col3-res] 300px [col4-res];
@@ -13,7 +13,7 @@
     grid-gap: 10px;
     grid-template-rows: auto;
 
-
+    margin-top: 20px;
 
     // @media all and (max-width: 768px) {
     //     /* For mobile phones: */

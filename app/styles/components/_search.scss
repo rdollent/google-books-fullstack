@@ -1,7 +1,8 @@
 #search {
     grid-column: col2 / col3;
-    grid-row: row2/ row3;
+    grid-row: row-search-start/ row-search-end;
     justify-self: center;
+    align-self: center;
 
     @media all and (max-width: 768px) {
         justify-self: stretch;

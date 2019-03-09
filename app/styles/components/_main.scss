@@ -1,7 +1,17 @@
 #main {
     display: grid;
     grid-template-columns: [col1] 40px [col2] auto [col3] 40px [col4];
-    grid-template-rows: [row1] 20px [row2] 100px [row3] auto [row4] 20px [row5];
+    grid-template-rows: [row-page-top] 
+                            20px 
+                        [row-search-start]
+                            60px 
+                        [row-search-end row-recent-start] 
+                            40px 
+                        [row-recent-end row-results-start] 
+                            auto 
+                        [row-results-end] 
+                            20px 
+                        [row-page-end];
     
     font-family: 'Verdana';
 

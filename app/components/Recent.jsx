@@ -1,6 +1,8 @@
 const React = require('react');
 const {connect} = require('react-redux');
+const Search = require('Search');
 
+console.log(Search.props);
 
 const actions = require('actions');
 
@@ -15,6 +17,12 @@ class Recent extends React.Component {
         this.props.clearLocal();
         const getList = () => {
             if(this.props.storageReducer !== '' || window.localStorage.getItem('list').length > 0) {
+            //     const list = (JSON.parse(window.localStorage.getItem('list')) || []).map((el) => {
+            //         React.createElement('span', {onClick: Search.submitInput(event, el)}, el);
+                    
+            //     })
+            //     .join(', ');
+                
                 const list = (JSON.parse(window.localStorage.getItem('list')) || []).join(', ');
                 return list;
             }    
@@ -23,8 +31,7 @@ class Recent extends React.Component {
         
         return (
             <div id='recent'>
-                <p>Recent searches:</p>
-                {getList()}
+                <span>Recent searches: </span><span id='recentList'>{getList()}</span>
             </div>
             
             );
