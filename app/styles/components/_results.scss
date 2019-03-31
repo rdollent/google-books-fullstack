@@ -1,7 +1,7 @@
 #results {
     grid-column: col2 / col3;
     grid-row: row-results-start/ row-results-end;
-    justify-self: center;
+    // justify-self: center;
     display: grid;
     // grid-template-columns: [col1-res] 300px [col2-res] 100px [col3-res] 300px [col4-res];
     // grid-template-rows: [row1-res] 400px [row2-res] 50px 
@@ -12,7 +12,6 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 10px;
     grid-template-rows: auto;
-
     margin-top: 20px;
 
     // @media all and (max-width: 768px) {
