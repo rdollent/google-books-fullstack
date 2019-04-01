@@ -1,8 +1,11 @@
 const React = require('react');
+const {BrowserRouter, Route, Switch} = require('react-router-dom');
 
-const Search = require('Search');
-const Results = require('Results');
-const Recent = require('Recent');
+const Navigation = require('Navigation');
+const Dash = require('Dash');
+const Error = require('Error');
+const Login = require('Login');
+
 
 class Main extends React.Component {
     constructor(props) {
@@ -10,14 +13,17 @@ class Main extends React.Component {
     }
 
     render() {
-        fetch('/hello').then((res) => res.json()).then((data) => {console.log(data)});
-
         return (
-            <div id='main'>
-                <Search/>
-                <Recent/>
-                <Results/>
-            </div>
+            <BrowserRouter>
+                <div>
+                    <Navigation />
+                    <Switch>
+                        <Route path='/' component={Dash} exact />
+                        <Route path='/login' component={Login} />
+                        <Route component={Error} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
         )
     }
 }

@@ -26,3 +26,11 @@ need from API:
 heroku git:remote -a jun-chingu-book-finder
 
 create component which houses last 10 queries
+
+
+
+express postgresql back-end!!!!!
+needs:
+    navbar - react router
+    sign up, login forms
+

@@ -22,7 +22,7 @@ app.use(express.static(staticPath));
 
 
 // routes
-const indexRoute = require('./app/routes/index');
+const indexRoute = require('./app/routes/indexRoute');
 
 // use routes
 app.use('/', indexRoute);
