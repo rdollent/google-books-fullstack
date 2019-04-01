@@ -17,8 +17,7 @@ module.exports = {
             'reducers',
             'store',
             'actions',
-            'styles',
-            'routes'
+            'styles'
         ],
         alias: {
           

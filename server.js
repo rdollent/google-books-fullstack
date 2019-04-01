@@ -3,7 +3,6 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-
 const app = express();
 
 
@@ -11,8 +10,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// routes
-const indexRoute = ('route-index');
+
 
 // set the port
 const PORT = process.env.PORT || 3000;
@@ -22,6 +20,9 @@ const staticPath = path.join(__dirname, '/public');
 app.use(express.static(staticPath));
 
 
+
+// routes
+const indexRoute = require('./app/routes/index');
 
 // use routes
 app.use('/', indexRoute);

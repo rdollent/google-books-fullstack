@@ -10,6 +10,8 @@ class Main extends React.Component {
     }
 
     render() {
+        fetch('/hello').then((res) => res.json()).then((data) => {console.log(data)});
+
         return (
             <div id='main'>
                 <Search/>
