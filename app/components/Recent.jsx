@@ -16,7 +16,8 @@ class Recent extends React.Component {
         // clear storageReducer every time so the component refreshes when query is made (and new state in storageReducer is changed)
         this.props.clearLocal();
         const getList = () => {
-            if(this.props.storageReducer !== '' || window.localStorage.getItem('list').length > 0) {
+            
+            if(this.props.storageReducer !== '' || window.localStorage.getItem('list')) {
             //     const list = (JSON.parse(window.localStorage.getItem('list')) || []).map((el) => {
             //         React.createElement('span', {onClick: Search.submitInput(event, el)}, el);
                     
@@ -25,7 +26,9 @@ class Recent extends React.Component {
                 
                 const list = (JSON.parse(window.localStorage.getItem('list')) || []).join(', ');
                 return list;
-            }    
+            } else {
+                return [];
+            }   
             
         };
         

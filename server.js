@@ -25,7 +25,11 @@ app.use(express.static(staticPath));
 const indexRoute = require('./app/routes/indexRoute');
 
 // use routes
-app.use('/', indexRoute);
+app.use('/api', indexRoute);
+
+app.get('*', (req, res) => {
+    res.redirect('/');
+});
 
 // set port property of app to use PORT
 app.set('port', PORT);
