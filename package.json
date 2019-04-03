@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "pg-promise": "^8.6.4",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router": "^5.0.0",
